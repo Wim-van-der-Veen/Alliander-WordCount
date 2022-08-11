@@ -1,0 +1,20 @@
+<div class="center">
+
+  <p>voer hier de te analyseren tekst in:</p>
+
+  <mat-card class="card input">
+
+      <mat-form-field class="big-textarea">
+        <textarea rows=10 matInput [required]="!text" [(ngModel)]="text">
+        </textarea>
+        <mat-hint align="end">
+          {{ hint }}
+        </mat-hint>
+        <mat-label>
+          {{ text ? '' : placeholder }}
+        </mat-label>      
+      </mat-form-field>
+
+  </mat-card>
+
+  </div>

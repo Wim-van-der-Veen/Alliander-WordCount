@@ -1,0 +1,45 @@
+<div class="center">
+  
+  <mat-card class="card input">
+
+    <p>{{text$ | async}}</p>
+
+  </mat-card>
+
+  <mat-card class="card output">
+
+    <p>aantal unieke woorden: {{wordCount$ | async}}</p>
+
+    <p>meest voorkomende woord: {{ ((wordsSorted$ | async) || [noWord])[0].getWord() }}</p>
+
+  </mat-card>
+
+  <mat-card class="card output wide">
+    <div class="row">
+
+      <mat-card class="card input narrow">
+
+        <div>hoe vaak komt een bepaald woord voor:
+          <div>woord: <input type="text" [(ngModel)]="word"/></div>
+          <div class="item">
+            <p> {{word || '--'}}: {{wordFrequency$ | async}} keer</p>
+          </div>
+        </div>
+
+      </mat-card>
+
+      <mat-card class="card input narrow">
+
+        <div>de meest voorkomende woorden: 
+          <div>aantal: <input type="number" [(ngModel)]="count"/></div>
+          <div *ngFor="let frequentWord of mostFrequentNWords$ | async" class="item">
+            <p>{{frequentWord.getWord()}}: {{frequentWord.getFrequency()}} keer</p>
+          </div>
+        </div>
+    
+      </mat-card>
+  	
+    </div>
+  </mat-card>
+
+</div>
